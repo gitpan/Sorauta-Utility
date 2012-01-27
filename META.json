@@ -1,5 +1,5 @@
 {
-   "abstract" : "Perl extension for blah blah blah",
+   "abstract" : "useful sub routeans",
    "author" : [
       "Yuki ANAI <yuki@apple.com>"
    ],
@@ -35,5 +35,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.01"
+   "version" : "0.02"
 }

@@ -1,5 +1,5 @@
 ---
-abstract: 'Perl extension for blah blah blah'
+abstract: 'useful sub routeans'
 author:
   - 'Yuki ANAI <yuki@apple.com>'
 build_requires:
@@ -18,4 +18,4 @@ no_index:
     - t
     - inc
 requires: {}
-version: 0.01
+version: 0.02

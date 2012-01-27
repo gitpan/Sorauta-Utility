@@ -37,7 +37,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 # 利用可能なサブルーチン一覧
 our @EXPORT = qw/get_from_http save_file create_get_url get_timestamp get_date get_epoch_from_formated_http cat is_hidden_file is_unnecessary_copying_file/;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 # Preloaded methods go here.
 
@@ -297,26 +297,68 @@ __END__
 
 =head1 NAME
 
-Sorauta::Utility - Perl extension for blah blah blah
+Sorauta::Utility - useful sub routeans
 
 =head1 SYNOPSIS
 
   use Sorauta::Utility;
-  blah blah blah
+
+1.get_from_http
+  $url = "http://google.com/";
+
+  # HTTP::Response instance
+  my $result = get_from_http($url);
+
+2.save_file
+  my $path = "sample.txt";
+  my $content = "hoge fuga piyo";
+  # if error has occures, return 2(or 0)
+  save_file($path, $content);
+
+3.create_get_url
+  my $url = "http://google.com/";
+  my $params = { id => 1, name => "sample" };
+
+  # return "http://google.com/?name=sample&id=1&"
+  my $result = create_get_url($url, $params);
+
+4.get_timestamp
+  # return "2012/01/25 15:02:14"
+  my $result = get_timestamp(1327471334);
+
+5.get_date
+  # return { year => 1, month => 1, dat => 2, hour => 1, min => 1, sec => 1 };
+  my $data_obj = get_date();
+
+6.get_epoch_from_formated_http
+  # return 1326498561
+  my $result = get_epoch_from_formated_http("Fri, 13 Jan 2012 23:49:21 GMT");
+
+7.cat
+  my @path_list = ('/Users', 'user', 'Desktop', 'Hoge.txt');
+
+  # return "/Users/user/Desktop/Hoge.txt"
+  my $result = cat(@path_list);
+
+8.is_hidden_file
+  my $file_path = ".svn";
+
+  # return 1
+  my $result = is_hidden_file($file_path);
+
+9.is_unnecessary_copying_file
+  my $file_path = ".svn";
+
+  # return 1
+  my $result = is_unnecessary_copying_file($file_path);
 
 =head1 DESCRIPTION
 
-Stub documentation for Sorauta::Utility, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
-
-Blah blah blah.
+useful sub routeans
 
 =head2 EXPORT
 
 None by default.
-
-
 
 =head1 SEE ALSO
 
